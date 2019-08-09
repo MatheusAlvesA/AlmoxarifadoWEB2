@@ -1,0 +1,5 @@
+package br.estoque;
+
+public enum TipoMaterial {
+	MEDICAMENTO, MATERIA_PRIMA, EMBALAGEM, REAGENTE, EQUIPAMENTO, EXPEDIENTE, OUTROS
+}
