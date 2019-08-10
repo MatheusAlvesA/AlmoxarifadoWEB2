@@ -1,9 +1,12 @@
 package br.estoque;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class EntradaEstoque {
+public class EntradaEstoque implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String codigo;
 	private ArrayList<String> itens;
@@ -130,6 +133,12 @@ public class EntradaEstoque {
 	}
 	public ArrayList<String> getAnexos() {
 		return anexos;
+	}
+	
+	@Override
+	public String toString() {
+		return "Entrada no Estoque, código: "+this.codigo
+				+"\nNotaFiscal: {\n  "+this.notaFiscal.toString()+"\n}\n";
 	}
 	
 }

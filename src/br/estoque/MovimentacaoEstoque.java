@@ -1,11 +1,14 @@
 package br.estoque;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 import br.RH.PessoaJuridica;
 
-public class MovimentacaoEstoque {
+public class MovimentacaoEstoque implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String responsavel;
 	private PessoaJuridica pjOrigem;
@@ -16,7 +19,7 @@ public class MovimentacaoEstoque {
 	private LoteMaterial itemLote;
 	private Material itemMaterial;
 	private Date dataMovimentacao;
-	private TipoMaterial tipoMovimentacao;
+	private TipoMovimentacao tipoMovimentacao;
 	
 	public MovimentacaoEstoque() {}
 
@@ -92,12 +95,17 @@ public class MovimentacaoEstoque {
 		this.dataMovimentacao = dataMovimentacao;
 	}
 
-	public TipoMaterial getTipoMovimentacao() {
+	public TipoMovimentacao getTipoMovimentacao() {
 		return tipoMovimentacao;
 	}
 
-	public void setTipoMovimentacao(TipoMaterial tipoMovimentacao) {
+	public void setTipoMovimentacao(TipoMovimentacao tipoMovimentacao) {
 		this.tipoMovimentacao = tipoMovimentacao;
+	}
+	
+	@Override
+	public String toString() {
+		return "Movimentação estoque, responsável: "+this.responsavel;
 	}
 	
 }

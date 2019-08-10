@@ -1,12 +1,15 @@
 package br.estoque;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 import br.RH.PessoaJuridica;
 
-public class NotaFiscal {
+public class NotaFiscal implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private int serieNF;
 	private int numeroNF;
 	private PessoaJuridica transportadora;
@@ -70,6 +73,11 @@ public class NotaFiscal {
 	}
 	public void setMotorista(String motorista) {
 		this.motorista = motorista;
+	}
+	
+	@Override
+	public String toString() {
+		return "Nota fiscal número: "+this.numeroNF;
 	}
 	
 }

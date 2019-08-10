@@ -1,9 +1,12 @@
 package br.estoque;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class Estoque {
+public class Estoque implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private BigDecimal qtdDecimal;
 	private Almoxarifado almoxarifado;
@@ -64,6 +67,18 @@ public class Estoque {
 		return historicoMovimentacoes;
 	}
 	
-	
+	@Override
+	public String toString() {
+		String r = "Estoque\n"
+					+"Quantidade: "+this.qtdDecimal.toString()
+					+"\n"
+					+"Historico Movimentações: [\n";
+		for(int i = 0; i < this.historicoMovimentacoes.size(); i++) {
+			r += "  "+this.historicoMovimentacoes.get(i).toString()+"\n";
+		}
+		
+		r += "]";
+		return r;
+	}
 	
 }
